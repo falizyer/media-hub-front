@@ -1,4 +1,5 @@
 import * as React from "react";
+import {Carousel, CarouselCaption, CarouselInner, CarouselItem, View, Mask} from "mdbreact";
 
 import "bootstrap";
 
@@ -21,6 +22,19 @@ export class ApplicationComponent extends React.PureComponent {
      * @override
      */
     public render() {
+        const slides = [{
+            url: "https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg",
+            title: "First",
+            content: "First content"
+        }, {
+            url: "https://mdbootstrap.com/img/Photos/Slides/img%20(99).jpg",
+            title: "Second",
+            content: "Second content"
+        }, {
+            url: "https://mdbootstrap.com/img/Photos/Slides/img%20(17).jpg",
+            title: "Third",
+            content: "Third content"
+        }];
         return (
             <main className={"application-main-wrap"}>
                 <h1>The Media Hub</h1>
@@ -53,8 +67,29 @@ export class ApplicationComponent extends React.PureComponent {
                         </div>
                     </nav>
                 </header>
-                <section>
-
+                <section className={"top-channels-carousel"}>
+                    <Carousel activeItem={1} length={slides.length} showControls={true} showIndicators={true} className="z-depth-1">
+                        <CarouselInner>
+                            {
+                                slides.map((slide, index) => {
+                                    return (
+                                        <CarouselItem itemId={index + 1}>
+                                            <View>
+                                                <img className="d-block w-100"
+                                                     src={slide.url}
+                                                     alt="First slide"/>
+                                                <Mask overlay="black-light"/>
+                                            </View>
+                                            <CarouselCaption>
+                                                <h3 className="h3-responsive">{slide.title}</h3>
+                                                <p>{slide.content}</p>
+                                            </CarouselCaption>
+                                        </CarouselItem>
+                                    );
+                                })
+                            }
+                        </CarouselInner>
+                    </Carousel>
                 </section>
                 <div className={"container"}>
                     <div className={"row"}>
