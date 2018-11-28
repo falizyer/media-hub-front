@@ -10,14 +10,3 @@ body {
   flex-direction: column;
   margin: 0 auto;
 }
-
-.top-channels-carousel {
-  display: flex;
-  min-height: 400px;
-
-  .carousel {
-    flex-grow: 1;
-    background-color: rgba(0, 0, 0, .5);
-
-  }
-}
