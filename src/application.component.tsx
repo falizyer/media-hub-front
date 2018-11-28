@@ -1,5 +1,7 @@
 import * as React from "react";
+import {Col, Row} from 'mdbreact';
 import {Carousel, CarouselCaption, CarouselInner, CarouselItem, View, Mask} from "mdbreact";
+import {Card, CardBody, CardImage, CardTitle, CardText} from 'mdbreact';
 
 import "bootstrap";
 
@@ -22,13 +24,7 @@ export class ApplicationComponent extends React.PureComponent {
      * @override
      */
     public render() {
-        const navLinks = [{
-            title: "Home",
-            href: "#"
-        }, {
-            title: "Contact",
-            href: "#"
-        }];
+        const channelCarousel = [{}, {}, {}, {}];
         const slides = [{
             url: "https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg",
             title: "First",
@@ -52,7 +48,8 @@ export class ApplicationComponent extends React.PureComponent {
 
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#main-navigation-menu"
-                                aria-controls="main-navigation-menu" aria-expanded="false" aria-label="Toggle navigation">
+                                aria-controls="main-navigation-menu" aria-expanded="false"
+                                aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
 
@@ -87,7 +84,7 @@ export class ApplicationComponent extends React.PureComponent {
                             <form className="form-inline">
                                 <div className="md-form my-0">
                                     <input className="form-control mr-sm-2" type="text" placeholder="Search"
-                                           aria-label="Search" />
+                                           aria-label="Search"/>
                                 </div>
                             </form>
                         </div>
@@ -123,9 +120,56 @@ export class ApplicationComponent extends React.PureComponent {
                     </Carousel>
                 </section>
                 <div className={"container"}>
-                    <div className={"row"}>
-
-                    </div>
+                    <h2>Some channel 1</h2>
+                    <Row className={"dynamic-carousel-row"}>
+                        {channelCarousel.map(channel => {
+                            return (
+                                <Col className={"col-12 col-sm-6 col-sm-6 col-md-4 col-lg-3"}>
+                                    <Card>
+                                        <CardImage
+                                            className="img-fluid"
+                                            src="https://mdbootstrap.com/img/Photos/Slides/img%20(17).jpg"
+                                            waves
+                                        />
+                                        <CardBody>
+                                            <CardTitle>Card title</CardTitle>
+                                            <CardText>
+                                                Some quick example text to build on the card
+                                                title
+                                                and make
+                                                up the bulk of the card&apos;s content.
+                                            </CardText>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                            );
+                        })}
+                    </Row>
+                    <h2>Some channel 2</h2>
+                    <Row className={"dynamic-carousel-row"}>
+                        {channelCarousel.map(channel => {
+                            return (
+                                <Col className={"col-12 col-sm-6 col-sm-6 col-md-4 col-lg-3"}>
+                                    <Card>
+                                        <CardImage
+                                            className="img-fluid"
+                                            src="https://mdbootstrap.com/img/Photos/Slides/img%20(17).jpg"
+                                            waves
+                                        />
+                                        <CardBody>
+                                            <CardTitle>Card title</CardTitle>
+                                            <CardText>
+                                                Some quick example text to build on the card
+                                                title
+                                                and make
+                                                up the bulk of the card&apos;s content.
+                                            </CardText>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                            );
+                        })}
+                    </Row>
                 </div>
                 <footer></footer>
             </main>

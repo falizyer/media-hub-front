@@ -10,3 +10,8 @@ body {
   flex-direction: column;
   margin: 0 auto;
 }
+
+.dynamic-carousel-row {
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
