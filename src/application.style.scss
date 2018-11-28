@@ -1,4 +1,12 @@
-@import "~bootstrap/scss/functions", "~bootstrap/scss/variables", "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/bootstrap";
 
+body {
+  margin: 0;
+}
 
+.application-main-wrap {
+  @include make-container-max-widths();
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
